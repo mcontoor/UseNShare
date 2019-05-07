@@ -2,6 +2,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./config/database');
+const controller = require('./controller/controller');
 
 
 
@@ -21,5 +22,7 @@ db.connect((err) => {
 
 
 const PORT = 5000;
+
+app.use('/', controller)
 
 app.listen(PORT, () => console.log('Server listening for requests on port ' + PORT));
