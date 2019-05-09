@@ -13,4 +13,11 @@ router.post('/signin', (req, res) => {
 
 })
 
+router.get('/profile/1', (req, res) => {
+    db.query('SELECT * FROM user where user_id=1', (err, data) => {
+        if (err) throw err;
+        res.json(data)
+    })
+})
+
 module.exports = router;

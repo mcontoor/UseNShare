@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Axios from 'axios';
-import { Button } from 'antd';
 import keys from '../../config/keys';
 
 firebase.initializeApp({
-apiKey: keys.firebase.apikey,
-authDomain: keys.firebase.authdomain
+    apiKey: keys.firebase.apikey,
+    authDomain: keys.firebase.authdomain
 })
 
 
 class Signin extends Component {
     state = {
-        isSignedIn: false,
+        isSignedIn: false
     }
     uiConfig = {
         signInFlow: "popup",
@@ -71,7 +70,7 @@ class Signin extends Component {
             {this.state.isSignedIn ? (
                 <span>
                     <div>Signed in</div>
-                    <Button onClick={()=>firebase.auth().signOut()}> signout</Button>
+                    <button onClick={()=>firebase.auth().signOut()}> signout</button>
                     <p>Welcome {firebase.auth().currentUser.displayName}</p> 
                     <img alt="profilepic" src={firebase.auth().currentUser.photoURL}></img>
                 </span>
