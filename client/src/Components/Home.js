@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import { Button } from 'antd';
 
 class Home extends React.Component {
     constructor() {
@@ -33,10 +34,13 @@ class Home extends React.Component {
             <ul>
               {products.map(product => (
                 <li key={product.id}>
-                <img src={product.image} alt={product.description}></img><br/>
+                <img width="20%" height="50%" src={product.image} alt={product.description}></img><br/>
                 <span>{product.name} <br/></span>
                 <span> Rs. {product.price}</span><br/>
-                <span>{product.address}</span>
+                <span>{product.address}</span><br/>
+                <Button color="primary">Buy</Button>
+                <Button color="primary">Rent</Button>
+                
                 </li>
               ))}
             </ul> 
