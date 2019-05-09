@@ -8,4 +8,9 @@ router.get ('/', (req, res) => {
     });
 });
 
+router.post('/signin', (req, res) => {
+    console.log("fhcjhgkhl", req.body);
+
+})
+
 module.exports = router;
