@@ -8,6 +8,7 @@ router.get ('/', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 router.get('/check',(req,res) => {
     db.query('SELECT * FROM reviews', (err,data) => {
         if (err) throw err;
@@ -55,6 +56,11 @@ router.post('/products', (req,res) => {
         if(err) throw err;
         res.json(data);
     })
+=======
+router.post('/signin', (req, res) => {
+    console.log("fhcjhgkhl", req.body);
+
+>>>>>>> 86df25044a58321acf0963b7f40cec957010232d
 })
 
 module.exports = router;
