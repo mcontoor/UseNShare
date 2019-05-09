@@ -3,10 +3,11 @@ import firebase from 'firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Axios from 'axios';
 import { Button } from 'antd';
+import keys from '../../config/keys';
 
 firebase.initializeApp({
-apiKey:"AIzaSyAQoZiSojolRu7Xv-9s5ZoLEFJG-5XYL5o",
-authDomain: "usenshare.firebaseapp.com"
+apiKey: keys.firebase.apikey,
+authDomain: keys.firebase.authdomain
 })
 
 
