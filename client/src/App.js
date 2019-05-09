@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from  'react-router-dom';
-import { Button } from 'antd';
+
 import Home from './Components/Home';
+import Profile from './Components/Profile';
 import './App.css';
 import Signin from './Components/Signin';
 import Nav from './Components/Nav';
+import Review from './Components/Review';
+
 
 class App extends Component {
   render () {
@@ -15,6 +18,9 @@ class App extends Component {
          <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/signin" component={Signin} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/review" component={Review} />
+            
         </Switch>
        </div>
       </BrowserRouter>
