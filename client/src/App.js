@@ -7,6 +7,7 @@ import './App.css';
 import Signin from './Components/Signin';
 import Nav from './Components/Nav';
 import Review from './Components/Review';
+import Product from './Components/Product';
 
 
 class App extends Component {
@@ -18,8 +19,9 @@ class App extends Component {
          <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/signin" component={Signin} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile/:id" component={Profile} />
             <Route path="/review" component={Review} />
+            <Route path="/products/:id" component={Product} />
             
         </Switch>
        </div>

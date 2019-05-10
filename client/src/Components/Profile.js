@@ -11,7 +11,7 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/profile')
+        axios.get('http://localhost:5000/profile/:id')
         .then(res=> {
             console.log(res.data);
             this.setState(()=>({
@@ -33,15 +33,15 @@ class Profile extends React.Component {
                 <div className="App">
                 <ul>
                     {user.map(user =>(
-                        <li key={user.user_id}>
-                        <span>{user.email}<br/></span>
+                        <li key={user.email}>
                         <span>{user.password}<br/></span>
                         <span>{user.first_name}<br/></span>
                         <span>{user.last_name}<br/></span>
                         <span>{user.address}<br/></span>
                         <span>{user.google_location}<br/></span>
                         <span>{user.phone_number}<br/></span>
-                        <span>{user.address2}</span>
+                        <span>{user.history}<br/></span>
+                        <span>{user.transactions}</span>
                         </li>
                     ))}
                 </ul>
