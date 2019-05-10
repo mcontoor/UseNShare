@@ -34,12 +34,11 @@ class Home extends React.Component {
             <ul>
               {products.map(product => (
                 <li key={product.id}>
-                <img width="20%" height="50%" src={product.image} alt={product.description}></img><br/>
+                <img width="20%" src={product.image} alt={product.description}></img><br/>
                 <span>{product.name} <br/></span>
                 <span> Rs. {product.price}</span><br/>
                 <span>{product.address}</span><br/>
-                <Button color="primary">Buy</Button>
-                <Button color="primary">Rent</Button>
+                <Button color="primary"> Rent </Button>
                 
                 </li>
               ))}

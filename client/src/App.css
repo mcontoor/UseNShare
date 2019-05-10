@@ -13,14 +13,14 @@
     min-height: 3vh;
     display: flex;
     flex-direction: row;
-    align-items: left;
+    align-items: right;
     justify-content: center;
-    font-size: calc(20px + 2vmin);
+    font-size: calc(1px + 2vmin);
     color: blueviolet;
   }
   
   h1{
-    background: powderblue;
+    background: green;
     color: blueviolet;
     justify-content: center;
   }
