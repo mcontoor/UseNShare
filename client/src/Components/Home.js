@@ -6,7 +6,7 @@ class Home extends React.Component {
       super();
       this.state={
         products:[],
-        isLoaded: false
+        isLoaded: false,
       };
     }
     
@@ -19,8 +19,9 @@ class Home extends React.Component {
           products: res.data
         }))
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
     }
+    
   
     render() {
       var { isLoaded, products} = this.state;

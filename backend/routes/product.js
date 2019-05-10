@@ -12,12 +12,15 @@ router.get ('/', (req, res) => {
     db.query(`INSERT INTO products (product_id,name,price,description,image,size,category_id,user_id,address,google_location,rent,buy) VALUES ('${product_id}','${name}','${price}','${description}','${image}','${size}','${category_id}','${user_id}','${address}','${google_location}','${rent}','${buy}')`, (err,data) => {
         if(err) throw err;
         res.json(data);
-    })
-})
+    });
+});
 
 
-    router.post('/product/:id/rent', (req,res) => {
-    
+    router.post('/rent', (req,res) => {
+        db.query(`INSERT INTO products (product_id,name,price,description,image,size,category_id,user_id,address,google_location,rent,buy) VALUES ('${product_id}','${name}','${price}','${description}','${image}','${size}','${category_id}','${user_id}','${address}','${google_location}','${rent}','${buy}')`, (err,data) => {
+            if(err) throw err;
+            res.json(data);
+        });
     })
 
      router.delete('/name', (req,res) => {
@@ -26,6 +29,6 @@ router.get ('/', (req, res) => {
         if (err) throw err;
         console.log('Item deleted successfully')
     })
-})
+});
 
 module.exports = router;

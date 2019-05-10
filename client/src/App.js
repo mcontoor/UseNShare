@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from  'react-router-dom';
-
 import Home from './Components/Home';
 import Profile from './Components/Profile';
 import './App.css';
@@ -13,19 +12,17 @@ import Product from './Components/Product';
 class App extends Component {
   render () {
     return(
-      <BrowserRouter>
-       <div>
-         <Nav />
-         <Switch>
-            <Route path="/" component={Home} exact/>
-            <Route path="/signin" component={Signin} />
-            <Route path="/profile/:id" component={Profile} />
-            <Route path="/review" component={Review} />
-            <Route path="/products/:id" component={Product} />
-            
-        </Switch>
-       </div>
-      </BrowserRouter>
+        <BrowserRouter>
+        <div>
+          <Nav />
+          <Switch>
+              <Route path="/" component={Home} exact/>
+              <Route path="/signin" component={Signin} />
+              <Route path="/profile" component={Profile} />
+            ` <Route path="/review" component={Review} />
+          </Switch>
+        </div>
+        </BrowserRouter>
     )
   };
 }
