@@ -6,7 +6,7 @@ class Home extends React.Component {
       super();
       this.state={
         products:[],
-        isLoaded: false
+        isLoaded: false,
       };
     }
     
@@ -19,8 +19,9 @@ class Home extends React.Component {
           products: res.data
         }))
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
     }
+    
   
     render() {
       var { isLoaded, products} = this.state;
@@ -33,7 +34,7 @@ class Home extends React.Component {
             <ul>
               {products.map(product => (
                 <li key={product.id}>
-                <img src={product.image} alt={product.description}></img><br/>
+                <img width="20%" src={product.image} alt={product.description}></img><br/>
                 <span>{product.name} <br/></span>
                 <span> Rs. {product.price}</span><br/>
                 <span>{product.address}</span>
