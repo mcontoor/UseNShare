@@ -9,7 +9,7 @@ router.get('/',(req,res) => {
 });
 
 router.delete('/delete/:user_name',(req,res)=>{
-   
+   console.log(req.params.email);
     db.query(`DELETE FROM reviews where user_name = '${req.params.user_name}'`, (err,data) => {
         if (err) throw err;
         console.log('review deleted successfully');
