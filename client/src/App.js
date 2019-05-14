@@ -6,11 +6,15 @@ import './App.css'
 import Signin from './Components/Signin';
 import Nav from './Components/Nav';
 import Review from './Components/Review';
+<<<<<<< HEAD
 import Details from './Components/Details';
 import productupload from './Components/productupload'
 import './layout.css'
 import { Layout, Menu, Breadcrumb,Button, Icon, Input, notification } from 'antd';
  
+=======
+import Product from './Components/Product';
+>>>>>>> 3aea0514f77fd4618b28f9d2f6e294107a616630
 
 const Search = Input.Search;
 
