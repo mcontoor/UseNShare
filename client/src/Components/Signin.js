@@ -5,14 +5,14 @@ import Axios from 'axios';
 import keys from '../../config/keys';
 
 firebase.initializeApp({
-apiKey: keys.firebase.apikey,
-authDomain: keys.firebase.authdomain
+    apiKey: keys.firebase.apikey,
+    authDomain: keys.firebase.authdomain
 })
 
 
 class Signin extends Component {
     state = {
-        isSignedIn: false,
+        isSignedIn: false
     }
     uiConfig = {
         signInFlow: "popup",
@@ -23,12 +23,15 @@ class Signin extends Component {
     callbacks: {
         signInSuccessWithAuthResult : (authResult, redirectUrl) => {
             redirectUrl = () => {
+                console.log('hgfhgjh')
                 return true};
             var user = authResult.user;
             var credential = authResult.credential;
             var isNewUser = authResult.additionalUserInfo.isNewUser;
             var providerId = authResult.additionalUserInfo.providerId;
             var operationType = authResult.operationType;
+            var userValue = JSON.parse(user);
+            console.log('jlkhlj;f');
             Axios.post('http://localhost:5000/signin', {
                 data:  {
                     user: user,
@@ -40,6 +43,8 @@ class Signin extends Component {
 
             } )
             .catch((e) => console.log(e));
+            
+
 
             
         },
@@ -58,8 +63,8 @@ class Signin extends Component {
             console.log('user', user.providerData[0])
             
 
-        })
 
+        })
 
         
     }

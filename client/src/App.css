@@ -9,18 +9,19 @@
   }
   
   .App-header {
-    background-color: black;
+    background-color: blue;
     min-height: 3vh;
     display: flex;
     flex-direction: row;
-    align-items: right;
+    align-items: center;
     justify-content: center;
-    font-size: calc(1px + 2vmin);
+    font-size: calc(5px + 2vmin);
     color: blueviolet;
+    float: right;
   }
   
   h1{
-    background: green;
+    background: blue;
     color: blueviolet;
     justify-content: center;
   }

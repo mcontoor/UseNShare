@@ -1,55 +1,38 @@
 import React from 'react';
 import axios from "axios";
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class Profile extends React.Component {
     constructor() {
         super();
         this.state={
-            user:[],
-            isLoaded:false
+            profile: []
+            
         };
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/profile')
-        .then(res=> {
+        let token = JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
+        const email = token[0].email
+        axios.get(`http://localhost:5000/profile/${email}`)
+        .then(res => {
             console.log(res.data);
-            this.setState(()=>({
-                isLoaded:true,
-                user: res.data
-            }))
+            this.setState({
+                profile: res.data
+            })
         })
-        .catch(err => console.log(err))
+        
+        .catch((e) => console.log(e));
     }
 
     render() {
-        var {isLoaded,user} = this.state;
-        if (!isLoaded) {
-            return <div>Loading...</div>
-        }
-
-        else{
-            return(
-                <div className="App">
-                <ul>
-                    {user.map(user =>(
-                        <li key={user.user_id}>
-                        <span>{user.email}<br/></span>
-                        <span>{user.password}<br/></span>
-                        <span>{user.first_name}<br/></span>
-                        <span>{user.last_name}<br/></span>
-                        <span>{user.address}<br/></span>
-                        <span>{user.google_location}<br/></span>
-                        <span>{user.phone_number}<br/></span>
-                        <span>{user.address2}</span>
-                        </li>
-                    ))}
-                </ul>
-                </div>
+        return(
+            <BrowserRouter>
+                <Route path=":/id" />
+            </BrowserRouter>
             )
         }
     };
-};
 
 export default Profile;
 

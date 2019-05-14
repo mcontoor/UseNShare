@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
+import { Rate } from 'antd';
 
 
 class Details extends React.Component {
@@ -11,17 +12,12 @@ class Details extends React.Component {
     }
   }
 
-  OnClick = (e)=>{
+  OnClick= (e)=>{
     this.props.Rent(this.props.id)
     this.setState({
       ...this.state
     })
-    
-    // Rent=()=>{
-    //     this.props.Rent(this.props.product.id)
-    //     this.setState({
-    //       ...this.state
-    //     })
+  
     }
     render() {
         return(
@@ -35,7 +31,9 @@ class Details extends React.Component {
              <p>Rs.300/day</p>
              <p> Gachibowli, Hyderabad</p>
             <p>A lovely pink lehenga that has a chequered crop top with floral clusters made with bullion knots along the waistline embellished with cutdana. It has a sheer back and an airy net skirt.</p>
-             <Button color="primary"> Chat </Button>
+             <Rate allowHalf defaultValue={3.5} /><br/>
+             <Button type="primary"> Rent </Button>
+             <Button type="primary"> Buy </Button>
              </div>
              </Card>
           </div>
