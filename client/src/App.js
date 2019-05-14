@@ -7,6 +7,8 @@ import Signin from './Components/Signin';
 import Nav from './Components/Nav';
 import Review from './Components/Review';
 import Product from './Components/Product';
+import Chat from './Components/Chat';
+import Messages from './Components/Messages';
 
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
               <Route path="/signin" component={Signin} />
               <Route path="/profile" component={Profile} />
             ` <Route path="/review" component={Review} />
+              <Route path="/messages" component={Messages} />
+              <Route path="/chat" component={Chat} />
           </Switch>
         </div>
         </BrowserRouter>
