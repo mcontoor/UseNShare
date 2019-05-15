@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Link } from  'react-router-dom';
+import { Layout, Menu, Breadcrumb,Button, Icon, Input, notification } from 'antd';
 import Home from './Components/Home';
 import Profile from './Components/Profile';
-import './App.css'
 import Signin from './Components/Signin';
 import Nav from './Components/Nav';
 import Review from './Components/Review';
-
 import Details from './Components/Details';
 import ProductUpload from './Components/UploadItem'
-import './layout.css'
-import { Layout, Menu, Breadcrumb,Button, Icon, Input, notification } from 'antd';
 import Product from './Components/Product';
 import Chat from './Components/Chat';
 import Messages from './Components/Messages';
+import Dropdown from './Components/Dropdown'
+import Details from './Components/Details';
+import './App.css'
+import './layout.css'
+
 
 const Search = Input.Search;
 

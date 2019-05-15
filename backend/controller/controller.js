@@ -4,6 +4,7 @@ const profile = require('../routes/profile');
 const review = require('../routes/reviews');
 const product = require('../routes/product');
 const messages = require('../routes/messages');
+const upload = require('../routes/uploads');
 
 
 app.use('/', home);
@@ -15,6 +16,8 @@ app.use('/review', review );
 app.use('/product', product);
 
 app.use('/messages', messages);
+
+app.use('/upload', upload)
 
 
 
