@@ -59,13 +59,12 @@ class Signin extends Component {
         firebase.auth().onAuthStateChanged(user => {
             this.setState({
                 isSignedIn: !!user,
-            })
-            console.log('user', user.providerData[0])
+            });
+            // console.log('user', user.providerData[0]);
             
 
 
-        })
-
+        });
         
     }
 
@@ -75,7 +74,11 @@ class Signin extends Component {
             {this.state.isSignedIn ? (
                 <span>
                     <div>Signed in</div>
-                    <button onClick={()=>firebase.auth().signOut()}> signout</button>
+                    <button onClick={()=> {
+                        firebase.auth().signOut()
+                        localStorage.removeItem('firebaseui::rememberedAccounts')
+                    }
+                        }> signout</button>
                     <p>Welcome {firebase.auth().currentUser.displayName}</p> 
                     <img alt="profilepic" src={firebase.auth().currentUser.photoURL}></img>
                 </span>

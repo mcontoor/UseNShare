@@ -1,5 +1,10 @@
 import React from 'react';
 import axios from "axios";
+import { Button, Row, Col } from 'antd';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import Details from '../Components/Details';
+import '../layout.css'
+
 
 class Home extends React.Component {
     constructor() {
@@ -20,9 +25,7 @@ class Home extends React.Component {
         }))
       })
       .catch(err => console.log(err));
-    }
-    
-  
+    };
     render() {
       var { isLoaded, products} = this.state;
       if (!isLoaded) {
@@ -30,21 +33,25 @@ class Home extends React.Component {
       } 
         else {
         return(
-            <div className="App">
-            <ul>
-              {products.map(product => (
-                <li key={product.id}>
-                <img width="20%" src={product.image} alt={product.description}></img><br/>
-                <span>{product.name} <br/></span>
-                <span> Rs. {product.price}</span><br/>
-                <span>{product.address}</span>
-                </li>
-              ))}
-            </ul> 
-          </div>
-        )
+             <div className="ProductList">
+             <Row gutter={40}>
+             {products.map(product => (
+                   
+                   <Col span={6}>
+                     <div>
+                     <img width="20%" height="20%" src={product.image} alt={product.description}></img><br/>
+              <span>{product.name} <br/></span>
+              <span> Rs. {product.price}</span><br/>
+              <span>{product.address}</span><br/>
+              <Button type="primary"> Buy / Rent </Button>
+                     </div>
+             </Col> 
+             ))}
+             </Row>
+             </div>
+             )
         }
     };
   };
-
+     
 export default Home;

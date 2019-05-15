@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-class Nav extends React.Component {
+class Nav extends React.Component {  
     state = {
         isSignedIn: false
     }
@@ -25,7 +25,9 @@ class Nav extends React.Component {
             return (
                 <nav>
                 <NavLink to="/" >Home</NavLink>
+                <div className="signin" align="right">
                 <NavLink to="/signin">Logout</NavLink>
+                </div>
                 </nav>
             );
         }
