@@ -6,16 +6,11 @@ import './App.css'
 import Signin from './Components/Signin';
 import Nav from './Components/Nav';
 import Review from './Components/Review';
-<<<<<<< HEAD
-import Details from './Components/Details';
-import productupload from './Components/productupload'
-import './layout.css'
-import { Layout, Menu, Breadcrumb,Button, Icon, Input, notification } from 'antd';
- 
-=======
 import Product from './Components/Product';
->>>>>>> 3aea0514f77fd4618b28f9d2f6e294107a616630
-
+import Dropdown from './Components/Dropdown'
+import { Layout, Menu, Breadcrumb, Button, Icon, Input, notification } from 'antd'; 
+import Details from './Components/Details';
+import productupload from './Components/productupload';
 const Search = Input.Search;
 
 const { SubMenu } = Menu;
@@ -122,14 +117,15 @@ class App extends Component {
             <Route path="/review" component={Review} />
             <Route path="/Details" component={Details}/>
             <Route path="/productupload" component={productupload}/>
+            <Route path="/Dropdown" component={Dropdown}/>
         </Switch>
-       </div> 
-      </BrowserRouter>
-   </Content>
-  </Layout>
-</Content>
-<Footer style={{ textAlign: 'center' }}> Use N Share ©2019 Created by Pranuthi, Meghana, Shravani</Footer>
-</Layout>
+      //  </div> 
+      // </BrowserRouter>
+//    </Content>
+//   </Layout>
+// </Content>
+// <Footer style={{ textAlign: 'center' }}> Use N Share ©2019 Created by Pranuthi, Meghana, Shravani</Footer>
+// </Layout>
 );
 }
 }
