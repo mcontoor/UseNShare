@@ -12,7 +12,7 @@ app.use('/profile/:id', profile);
 
 app.use('/review', review );
 
-app.use('/product/:product_id', product);
+app.use('/product', product);
 
 app.use('/messages', messages);
 

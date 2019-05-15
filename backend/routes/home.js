@@ -2,7 +2,8 @@ const router = require('express').Router();
 const db = require('../config/database');
 
 router.get ('/', (req, res) => {
-    db.query('SELECT * FROM products', (err, data) => {
+    let query = 'SELECT products.product_id,products.name,products.price,products.description,products.image,products.size,products.user_id,products.address,products.google_location,reviews.user_name,reviews.product_id,reviews.review,reviews.rating FROM products CROSS JOIN reviews ON products.user_id = reviews.user_id'
+    db.query('SELECT * from products', (err, data) => {
         if (err) throw err;
         res.json(data);
     });

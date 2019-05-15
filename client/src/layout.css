@@ -20,9 +20,12 @@
     color: black;
   }
 
-  .ant-col .ant-col-6 {
-    height: 50px;
-    width: 50px
+  .ant-col .ant-col- {
+    padding: '20px';
+    padding-bottom: '20px';
+    padding-top: '20px';
+    border: black;
+    margin: '20px';
   }
 
   
