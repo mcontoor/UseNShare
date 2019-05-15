@@ -34,19 +34,19 @@ class Home extends React.Component {
         else {
         return(
           <BrowserRouter>
-             <div className="ProductList">
+             <div className="ProductList" style={{ textAlign: 'center' }}>
              <Row gutter={54}>
              {products.map(product => (
                    <Col span={8}>
                      <div>
-                        <img width="120%" height="120%" src={product.image} alt={product.description}></img><br/>
-                        <span>{product.name} <br/></span>
-                        <span> Rs. {product.price}</span><br/>
-                        <span>{product.address}</span><br/>
+                        <img width="80%" height="80%" src={product.image} alt={product.description}></img><br/>
+                        <span text-align="center">{product.name} <br/></span>
+                        <span text-align="center"> Rs. {product.price}</span><br/>
+                        <span text-align="center">{product.address}</span><br/>
                         <Rate disabled allowHalf Value={3.5} ></Rate><br/>
-                        <Link to="/reviews"> 1 Reviews</Link><br />
+                        <Link to="/reviews" text-align="center"> 1 Reviews</Link><br />
                         <Route path="/reviews" />
-                        <Button type="primary">
+                        <Button type="primary" align="center">
                         <span> Buy/Rent </span>
                         <Link to="/details" />
                         <Route path="/details" component={Details} />

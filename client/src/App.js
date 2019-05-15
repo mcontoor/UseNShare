@@ -11,10 +11,9 @@ import ProductUpload from './Components/UploadItem'
 import Product from './Components/Product';
 import Chat from './Components/Chat';
 import Messages from './Components/Messages';
-import Dropdown from './Components/Dropdown'
-import Details from './Components/Details';
-import './App.css'
+import './App.css';
 import './layout.css'
+import { timingSafeEqual } from 'crypto';
 
 
 const Search = Input.Search;
@@ -52,25 +51,8 @@ class App extends Component {
         console.log('click', e);
       }
 
-      // componentWillUpdate() {
-      //   if (localStorage.getItem('firebaseui::rememberedAccounts')) {
-      //     this.setState({
-      //       isSignedIn: true
-      //     })
-      //   }
-      // }
       
-      onLogoutClick=(e)=>{
-        this.setState({
-          isSignedIn: false
-        })
-      }
-
-      onLoginClick=(e)=>{
-        this.setState({
-          isSignedIn: true
-        })
-      }
+      
 
   render () {
     
@@ -88,28 +70,21 @@ class App extends Component {
     <Menu.Item key="1"> USE N SHARE (RENTAL) </Menu.Item>
       <Menu.Item key="2">
         <span>Home</span> 
-        <link to="/" />
+        <Link to="/" />
       </Menu.Item>
     <Menu.Item key="3"> 
     <span>Upload</span>
     <Link to="/upload" />
      </Menu.Item>
      <Menu.Item key="4">
-     <div>
-      {this.state.isSignedIn ? 
-      <span>
-        <span>Logout</span>
+        <span>Login</span>
         <Link to="/signin" />
-      </span>
-          : 
-          <span>
-            <span>Login</span>
-            <Link to="/signin" />
-          </span>
-    }
-     </div>
     </Menu.Item>
-    <Menu.Item key="5"> 
+    <Menu.Item key="5">
+      <span>Messages</span>
+      <Link to="/messages" />
+    </Menu.Item>
+    <Menu.Item key="6"> 
     <Breadcrumb style={{ margin: '16px 0' }}>
     <Breadcrumb.Item align="right"> 
      <Button type="primary" onClick={openNotification}>
@@ -150,20 +125,35 @@ class App extends Component {
           title={
             <span>
               <Icon type="user" />
-              Catogiries
+              Categories
             </span>
           }
         >
-          <Menu.Item key="1"> Clothing </Menu.Item>
-          <Menu.Item key="2"> Hand Bags</Menu.Item>
-          <Menu.Item key="3"> Jewelery </Menu.Item>
+          <Menu.Item key="7"> Clothing </Menu.Item>
+          <Menu.Item key="8"> Hand Bags</Menu.Item>
+          <Menu.Item key="9"> Jewelery </Menu.Item>
+        </SubMenu>
+        <SubMenu
+        key="sub2"
+        title={
+          <span>
+            <Icon type="link" />
+            Select City
+          </span>
+        }
+        >
+          <Menu.Item key="10"> Mumbai </Menu.Item>
+          <Menu.Item key="11"> Delhi</Menu.Item>
+          <Menu.Item key="12"> Bangalore </Menu.Item>
+          <Menu.Item key="13"> Hyderabad </Menu.Item>
+          <Menu.Item key="14"> Chennai</Menu.Item>
+          <Menu.Item key="15"> Kolkata </Menu.Item>
         </SubMenu>
       </Menu>
     </Sider>
     <Content style={{ padding: '0 24px', minHeight: 280 }}> 
       
       <div>
-         <Nav />
          <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/signin" component={Signin} />
