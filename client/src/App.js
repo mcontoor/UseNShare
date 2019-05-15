@@ -8,7 +8,7 @@ import Nav from './Components/Nav';
 import Review from './Components/Review';
 import Details from './Components/Details';
 import ProductUpload from './Components/UploadItem'
-import Product from './Components/Product';
+// import Product from './Components/Product';
 import Chat from './Components/Chat';
 import Messages from './Components/Messages';
 import './App.css';
@@ -159,7 +159,7 @@ class App extends Component {
             <Route path="/signin" component={Signin} />
             <Route path="/profile" component={Profile} />
             <Route path="/review" component={Review} />
-            <Route path="/Details" component={Details}/>
+            <Route path="/details" component={Details}/>
             <Route path="/upload" component={ProductUpload}/>
             <Route path="/messages" component={Messages} />
             <Route path="/chat" component={Chat} />

@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from "axios";
+import { BrowserRouter, Route, Link } from  'react-router-dom';
+import { Layout, Menu, Breadcrumb,Button, Icon, Input, notification } from 'antd';
 
 class Product extends React.Component {
     constructor() {
@@ -30,7 +32,8 @@ class Product extends React.Component {
 
         else{
             return(
-                <div className="App">
+                <BrowserRouter>
+                <div className="product">
                 <ul>
                     {products.map(products =>(
                         <li key={products.product_id}>
@@ -45,10 +48,19 @@ class Product extends React.Component {
                         <span>{products.user_name}<br/></span>
                         <span>{products.review}<br/></span>
                         <span>{products.rating}</span>
+                        <Button type="primary" align="center">
+                        <Link to="/details"> Buy</Link>
+                        <Route path="/details" component={Details} />
+                         </Button>
+                         <Button type="primary" align="center">
+                        <Link to="/details"> Buy</Link>
+                        <Route path="/details" component={Details} />
+                         </Button>
                         </li>
                     ))}
                 </ul>
                 </div>
+                </BrowserRouter>
             )
         }
     };

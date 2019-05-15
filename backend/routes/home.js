@@ -38,4 +38,12 @@ router.get('/profile/1', (req, res) => {
     })
 })
 
+router.get('/details/:id', (req, res) => {
+    console.log(req.params.id);
+    db.query(`SELECT * FROM products WHERE product_id=${req.params.id}`, (err, data) => {
+        if (err) throw err;
+        res.json(data)
+    })
+})
+
 module.exports = router;

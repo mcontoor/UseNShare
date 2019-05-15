@@ -16,6 +16,8 @@ router.get ('/', (req, res) => {
 });
 
 
+    
+
     router.post('/rent', (req,res) => {
         db.query(`INSERT INTO products (product_id,name,price,description,image,size,category_id,user_id,address,google_location,rent,buy) VALUES ('${product_id}','${name}','${price}','${description}','${image}','${size}','${category_id}','${user_id}','${address}','${google_location}','${rent}','${buy}')`, (err,data) => {
             if(err) throw err;

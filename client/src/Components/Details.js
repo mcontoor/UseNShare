@@ -2,43 +2,51 @@ import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
 import { Rate } from 'antd';
+import Axios from 'axios';
 
 
 class Details extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
-    }
-  }
+      product: []
+    }}
 
-  OnClick= (e)=>{
-    this.props.Rent(this.props.id)
-    this.setState({
-      ...this.state
-    })
+    componentDidMount() {
+      Axios.get(`http://localhost:5000/details/${this.props.location.product}`)
+      .then(res => console.log(res.data))
+      .then(this.setState({
+        product: res.data
+      }))
+      .catch(e => console.log(e))
+    }
+
+
   
-    }
-    render() {
-        return(
-              <div className="App">
-              <Card style={{ width: 400 }} bodyStyle={{ padding: 30 }}>
-              <div className="custom-image">
-              <img alt="example" width="100%" src="https://cdn.shopify.com/s/files/1/0049/3649/9315/products/1_505f5be0-0559-476c-ad77-599fb72c1809_600x.JPG?v=1542968950" />
-              </div>
-              <div className="custom-card">
-              <h3>Lehanga</h3>
-             <p>Rs.300/day</p>
-             <p> Gachibowli, Hyderabad</p>
-            <p>A lovely pink lehenga that has a chequered crop top with floral clusters made with bullion knots along the waistline embellished with cutdana. It has a sheer back and an airy net skirt.</p>
-             <Rate allowHalf defaultValue={3.5} /><br/>
-             <Button type="primary"> Rent </Button>
-             <Button type="primary"> Buy </Button>
-             </div>
-             </Card>
-          </div>
+  handleRent = () => {
+    console.log("Rendet..!", this.state.value);
+  }
+  render() {
+  
+      return(
+            <div className="App"> jhlk
+        {/* //     <Card style={{ width: 400 }} bodyStyle={{ padding: 30 }}>
+        //     <div className="custom-image">
+        //     <img alt="example" width="100%" src={product.image}/>
+        //     </div>
+        //     <div className="custom-card">
+        //     <h3>{product.name}</h3>
+        //     <p>Rs.{product.price}</p>
+        //     <p> {product.address}</p>
+        //   <p>{product.description}</p>
+        //     <Rate allowHalf defaultValue={3.5} /><br/>
+        //     <Button type="primary" onClick={this.handleRent}> Rent </Button>
+        //     <Button type="primary"> Buy </Button>
+        //     </div>
+        //     </Card> */}
+        </div>
 
-        );
-    }
+      )
+  }
 }
 export default Details;

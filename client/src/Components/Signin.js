@@ -16,22 +16,19 @@ class Signin extends Component {
     }
     uiConfig = {
         signInFlow: "popup",
+        queryParameterForSignInSuccessUrl: "signInSuccessUrl",
         signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {
         signInSuccessWithAuthResult : (authResult, redirectUrl) => {
-            redirectUrl = () => {
-                console.log('hgfhgjh')
-                return true};
             var user = authResult.user;
             var credential = authResult.credential;
             var isNewUser = authResult.additionalUserInfo.isNewUser;
             var providerId = authResult.additionalUserInfo.providerId;
             var operationType = authResult.operationType;
             var userValue = JSON.parse(user);
-            console.log('jlkhlj;f');
             Axios.post('http://localhost:5000/signin', {
                 data:  {
                     user: user,
@@ -43,12 +40,14 @@ class Signin extends Component {
 
             } )
             .catch((e) => console.log(e));
-            
+            return true;
 
 
             
         },
-        signInSuccessUrl: "/"
+        signInSuccessUrl: "http://localhost:3000/?mode=signInSuccessUrl=profile",
+
+        
     }
 }
 
