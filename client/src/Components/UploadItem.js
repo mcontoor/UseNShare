@@ -17,6 +17,7 @@ class ProductUpload extends Component {
         }
       });
     }
+
   
     normFile = (e) => {
       console.log('Upload event:', e);
@@ -28,6 +29,8 @@ class ProductUpload extends Component {
   
     render() {
       const { getFieldDecorator } = this.props.form;
+      let token = JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
+      const email = token[0].email
       const formItemLayout = {
         labelCol: { span: 6 },
         wrapperCol: { span: 14 },
@@ -37,7 +40,7 @@ class ProductUpload extends Component {
           <Form.Item
             label="Username"
           >
-            <span className="ant-form-text">Username</span>
+            <span className="ant-form-text">{email}</span>
           </Form.Item>
           <Form.Item
             label="Select"
@@ -48,8 +51,13 @@ class ProductUpload extends Component {
                 { required: true, message: 'Please select your country!' },
               ],
             })(
-              <Select placeholder="Please select a country">
-                <Option value="india">India</Option>
+              <Select placeholder="Please select a city">
+                <Option value="india">Mumbai</Option>
+                <Option value="india">Delhi</Option>
+                <Option value="india">Hyderabad</Option>
+                <Option value="india">Warangal</Option>
+                <Option value="india">Kolkata</Option>
+                <Option value="india">Chennai</Option>
               </Select>
             )}
           </Form.Item>

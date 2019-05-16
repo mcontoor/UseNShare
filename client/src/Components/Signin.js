@@ -3,6 +3,10 @@ import firebase from 'firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Axios from 'axios';
 import keys from '../../config/keys';
+import { Button } from 'antd';
+import {Link } from 'react-router-dom';
+
+
 
 firebase.initializeApp({
     apiKey: keys.firebase.apikey,
@@ -68,18 +72,24 @@ class Signin extends Component {
     }
 
     render () {
+        console.log(firebase.auth().currentUser)
         return(
             <div className="signin">
             {this.state.isSignedIn ? (
                 <span>
-                    <div>Signed in</div>
-                    <button onClick={()=> {
+                    <div>You are logged in!</div><br />
+                    <img alt="profilepic" src={firebase.auth().currentUser.photoURL} height="40px" width="40px"></img>
+                    <span>                Welcome {firebase.auth().currentUser.displayName}</span><br />
+                    <Button type="default" align="center">
+                        <Link to={{pathname: '/profile', user: firebase.auth().currentUser.email}}> View Profile</Link>
+                         </Button>
+                    
+                    <Button align="center" onClick={()=> {
                         firebase.auth().signOut()
                         localStorage.removeItem('firebaseui::rememberedAccounts')
                     }
-                        }> signout</button>
-                    <p>Welcome {firebase.auth().currentUser.displayName}</p> 
-                    <img alt="profilepic" src={firebase.auth().currentUser.photoURL}></img>
+                        }> Sign Out</Button>
+                    
                 </span>
                 )
             : (
